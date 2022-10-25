@@ -4,6 +4,7 @@ import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Form/Login/Login";
 import NotFound from "../../NotFound/NotFound";
 import Courses from "../../pages/Courses/Courses/Courses";
+import SingleCourse from "../../pages/Courses/SingleCourse/SingleCourse";
 
 
 export const routes = createBrowserRouter([
@@ -17,7 +18,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/courses',
-                element:<Courses></Courses>
+                element:<Courses></Courses>,
+                loader: ({params}) => fetch('http://localhost:5000/all-courses')
+            },
+            {
+                path:'/single-courses/:id',
+                element:<SingleCourse></SingleCourse>,
+                loader:({params})=>fetch(`http://localhost:5000/single-courses/${params.id}`)
             },
             {
                 path:'/login',
