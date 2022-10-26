@@ -1,13 +1,15 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+
 import { Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const CourseCart = ({ courses }) => {
-    const { title, rating, total_sales, img_url, description, publish_date, author,_id} = courses;
-    console.log(courses);
+const Details = () => {
+    const course = useLoaderData();
+    const { title, rating, total_sales, img_url, description, publish_date, author,_id} = course;
     return (
         <div className="mt-4">
             <Card className="mt-8 mb-4" style={{ width: "75%" }}>
@@ -33,11 +35,7 @@ const CourseCart = ({ courses }) => {
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
-                        {
-                            description.length > 100 ?
-                            <p>{description.slice(0,100)+'...'}<Link to>see details</Link></p>:
-                            <p>{description}</p>
-                        }
+                        {description}
                     </Card.Text>
 
                 </Card.Body>
@@ -47,14 +45,15 @@ const CourseCart = ({ courses }) => {
                             <p>Published Date:{publish_date}</p>
                             <p>Total Seal:{total_sales}</p>
                         </div>
-                        <div>
-                        <Button variant="primary"><Link to={`/details/${_id}`} className="text-white nav-link">Course Details</Link></Button>
+                        <div className='d-grid'>
+                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link">Download Pdf</Link></Button>
+                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link">Get Premium</Link></Button>
                         </div>
                     </div>
                 </Card.Footer>
             </Card>
         </div>
-    );
+        );
 };
 
-export default CourseCart;
+export default Details;

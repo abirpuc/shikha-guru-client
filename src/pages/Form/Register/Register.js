@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Register = () => {
     const navigator = useNavigate();
     const {error, setError} = useState();
+    const [accepted,setAccepted] = useState(false)
     const { createUser,userProfileUpdate } = useContext(AuthContex);
 
 
@@ -17,7 +18,7 @@ const Register = () => {
         const form = event.target;
 
         const name = form.name.value;
-        const photoURL = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -35,18 +36,24 @@ const Register = () => {
     }
 
    const updateUser = (name,photoURL) =>{
+   
         const profile = {
             displayName:name,
             photoURL: photoURL,
         }
+        
         userProfileUpdate(profile)
         .then(() => {}).catch(() =>{})
+   }
+
+   const handleCondition = (event) =>{
+    setAccepted(event.target.checked)
    }
 
 
     return (
         <div>
-            <Form onSubmit={handleForm}>
+            <Form onSubmit={handleForm} style={{width: "50%", marginLeft: "200px"}}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Full Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="Enter full name" />
@@ -75,9 +82,21 @@ const Register = () => {
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check 
+                    type="checkbox"
+                    onClick={handleCondition}
+                    label={
+                        <>
+                            Trams and <Link to="/condition"> Condition </Link>
+                        </>
+                    } />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Form.Group className="mb-3">
+                <Form.Text >
+                        <p className='text-success'>Already have an Account?<Link to="/login">Login</Link></p>
+                    </Form.Text>
+                </Form.Group>
+                <Button variant="primary" type="submit" disabled={!accepted}>
                     Submit
                 </Button>
             </Form>

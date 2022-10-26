@@ -34,15 +34,8 @@ const Header = () => {
             })
     }
 
-    const handleToggle = () => {
-      console.log('clicked');
-      if(false){
-        setToggle(true);
-        console.log(toggle);
-      }else{
-        setToggle(false);
-        console.log(toggle);
-      }
+    const handleToggle = (event) => {
+        
     }
 
     return (
@@ -65,9 +58,11 @@ const Header = () => {
                         </Nav>
                         <div>
                             {
-                                <p>{user?.displayName}</p>
+                                user?.photoURL ? <><Image src={user?.photoURL} style={{height: '40px', width:"40px"}} roundedCircle  data-bs-toggle="tooltip" data-bs-placement="bottom" title={user?.displayName}></Image>
+                                <Button onClick={singout} className="me-2" variant="light">LogOut</Button></>:
+                               <><Button onClick={singout} className="me-2" variant="light">LogOut</Button></>
+
                             }
-                            <Button onClick={singout} className="me-2" variant="light">LogOut</Button>
                             <dvi onClick={handleToggle}>
                                 <Button className="me-2" variant="light">Light</Button>
                             </dvi>

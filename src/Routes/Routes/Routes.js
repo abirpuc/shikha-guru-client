@@ -7,6 +7,8 @@ import Courses from "../../pages/Courses/Courses/Courses";
 import SingleCourse from "../../pages/Courses/SingleCourse/SingleCourse";
 import Register from "../../pages/Form/Register/Register";
 import Blog from "../../pages/Blog/Blog";
+import Condition from "../../pages/TreamsAndcondition/Condition";
+import Details from "../../pages/Details/Details";
 
 
 export const routes = createBrowserRouter([
@@ -39,11 +41,20 @@ export const routes = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/details/:id',
+                element:<Details></Details>,
+                loader:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
             }
+          
             
         ]
     },
-    
+    {
+        path:'/condition',
+        element:<Condition></Condition>
+    },
     {
         path:'*',
         element:<NotFound></NotFound>
