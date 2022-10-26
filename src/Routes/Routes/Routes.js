@@ -6,6 +6,7 @@ import NotFound from "../../NotFound/NotFound";
 import Courses from "../../pages/Courses/Courses/Courses";
 import SingleCourse from "../../pages/Courses/SingleCourse/SingleCourse";
 import Register from "../../pages/Form/Register/Register";
+import Blog from "../../pages/Blog/Blog";
 
 
 export const routes = createBrowserRouter([
@@ -28,6 +29,10 @@ export const routes = createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/single-courses/${params.id}`)
             },
             {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
+            {
                 path:'/login',
                 element:<Login></Login>
             },
@@ -35,8 +40,10 @@ export const routes = createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             }
+            
         ]
     },
+    
     {
         path:'*',
         element:<NotFound></NotFound>

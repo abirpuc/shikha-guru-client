@@ -29,30 +29,11 @@ const Header = () => {
                         <Nav
                             className="me-8 my-lg-0"
                             style={{ maxHeight: '100px' }}
-                            navbarScroll
-                        >
+                            navbarScroll>
                             <Nav.Link ><Link to="/">Home</Link></Nav.Link>
                             <Nav.Link ><Link to="/courses">Course</Link></Nav.Link>
+                            <Nav.Link ><Link to="/blog">Blog</Link></Nav.Link>
                             <Nav.Link ><Link onClick={handleShow}>Forms</Link></Nav.Link>
-                            {/* <NavDropdown title="Login" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
-                                <NavDropdown.Item >
-                                    <Link to="/register">
-                                        Registration
-                                    </Link>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item >
-                                    <Link to="/register">
-                                        Sing-in With Google
-                                    </Link>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item >
-                                    <Link to="/register">
-                                        Sing-in With Github
-                                    </Link>
-                                </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                            </NavDropdown> */}
                         </Nav>
                         <div>
                             {
