@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Image from 'react-bootstrap/Image'
 import logo from '../../../Images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
@@ -19,6 +19,8 @@ const Header = () => {
     const handleShow = () => setShow(true);
     const { user, singinWithGoogle, logOut } = useContext(AuthContex);
 
+    const navigator = useNavigate();
+
     const handleGooglesingin = () => {
         singinWithGoogle()
             .then(() => { })
@@ -27,7 +29,9 @@ const Header = () => {
 
     const singout = () => {
         logOut()
-            .then(() => { })
+            .then(() => { 
+                navigator('/');
+            })
     }
 
     const handleToggle = () => {
@@ -87,7 +91,7 @@ const Header = () => {
                         Close
                     </Button>
                     <Button variant="primary" >
-                        Login
+                    <Link to="/login" className="text-white nav-link">Login</Link>
                     </Button>
                 </Modal.Footer>
             </Modal>
