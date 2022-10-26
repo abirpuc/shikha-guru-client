@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Register = () => {
+    const navigator = useNavigate();
     const {error, setError} = useState();
     const { createUser,userProfileUpdate } = useContext(AuthContex);
 
@@ -25,8 +27,9 @@ const Register = () => {
         .then(result =>{
             const user = result.user;
             updateUser(name,photoURL);
+            navigator('/courses')
             form.reset();
-            console.log(user);
+            // console.log(user);
         }).catch(error => console.error(error))
 
     }

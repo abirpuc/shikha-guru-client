@@ -13,10 +13,34 @@ import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Header = () => {
     const [show, setShow] = useState(false);
+    const [toggle, setToggle] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { user } = useContext(AuthContex);
+    const { user, singinWithGoogle, logOut } = useContext(AuthContex);
+
+    const handleGooglesingin = () => {
+        singinWithGoogle()
+            .then(() => { })
+            .catch(() => { })
+    }
+
+    const singout = () => {
+        logOut()
+            .then(() => { })
+    }
+
+    const handleToggle = () => {
+      console.log('clicked');
+      if(false){
+        setToggle(true);
+        console.log(toggle);
+      }else{
+        setToggle(false);
+        console.log(toggle);
+      }
+    }
+
     return (
         <div>
             <Navbar bg="light" expand="lg" className="mx-8">
@@ -39,8 +63,10 @@ const Header = () => {
                             {
                                 <p>{user?.displayName}</p>
                             }
-                            <Link>LogOut</Link>
-                            <button title="">Light</button>
+                            <Button onClick={singout} className="me-2" variant="light">LogOut</Button>
+                            <dvi onClick={handleToggle}>
+                                <Button className="me-2" variant="light">Light</Button>
+                            </dvi>
                         </div>
                     </Navbar.Collapse>
                 </Container>
@@ -51,9 +77,9 @@ const Header = () => {
                 </Modal.Header>
                 <Modal.Body className="text-center">
                     <ButtonGroup className="w-75 mb-2 d-grid gap-2">
-                        <Link to="register"><Button className="rounded">     Registration     </Button></Link>
-                        <Link><Button className="rounded" variant="danger">Sing-In With Google</Button></Link>
-                        <Link><Button className="rounded" variant="secondary"> Sing-In With Github </Button></Link>
+                        <Button className="rounded"><Link to="register" className="text-white nav-link">Registration</Link></Button>
+                        <Button className="rounded" onClick={handleGooglesingin} variant="danger">Sing-In With Google</Button>
+                        <Button className="rounded" variant="secondary"> Sing-In With Github </Button>
                     </ButtonGroup>
                 </Modal.Body>
                 <Modal.Footer>
