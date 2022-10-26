@@ -53,14 +53,16 @@ const Header = () => {
                             navbarScroll>
                             <Nav.Link ><Link to="/">Home</Link></Nav.Link>
                             <Nav.Link ><Link to="/courses">Course</Link></Nav.Link>
+                            <Nav.Link ><Link to="/checkout">Premium Course</Link></Nav.Link>
                             <Nav.Link ><Link to="/blog">Blog</Link></Nav.Link>
+                            <Nav.Link ><Link to="/blog">FAQ</Link></Nav.Link>
                             <Nav.Link ><Link onClick={handleShow}>Forms</Link></Nav.Link>
                         </Nav>
                         <div>
                             {
                                 user?.photoURL ? <><Image src={user?.photoURL} style={{height: '40px', width:"40px"}} roundedCircle  data-bs-toggle="tooltip" data-bs-placement="bottom" title={user?.displayName}></Image>
                                 <Button onClick={singout} className="me-2" variant="light">LogOut</Button></>:
-                               <><Button onClick={singout} className="me-2" variant="light">LogOut</Button></>
+                               <></>
 
                             }
                             <dvi onClick={handleToggle}>

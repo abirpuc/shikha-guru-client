@@ -9,6 +9,8 @@ import Register from "../../pages/Form/Register/Register";
 import Blog from "../../pages/Blog/Blog";
 import Condition from "../../pages/TreamsAndcondition/Condition";
 import Details from "../../pages/Details/Details";
+import PrivateRouter from "../../Router/PrivateRouter/PrivateRouter";
+import CheckOut from "../../pages/CheckOut/CheckOut";
 
 
 export const routes = createBrowserRouter([
@@ -44,8 +46,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/details/:id',
-                element:<Details></Details>,
+                element:<PrivateRouter><Details></Details></PrivateRouter>,
                 loader:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+            },
+            {
+                path:'/checkout',
+                element:<PrivateRouter><CheckOut></CheckOut></PrivateRouter>
             }
           
             

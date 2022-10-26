@@ -13,7 +13,7 @@ const SideNav = () => {
             .then(data => setCourse(data))
     })
     return (
-        <div>
+        <div className="mb-4">
             <h1>Available Courses: {course.length}</h1>
             {
                 course.map(c =>

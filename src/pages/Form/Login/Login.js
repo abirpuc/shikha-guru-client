@@ -2,13 +2,15 @@ import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Login = () => {
     const { login } = useContext(AuthContex)
 
     const navigator = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleForm = (event) =>{
         event.preventDefault();
@@ -23,7 +25,7 @@ const Login = () => {
         .then((result)=>{
             const user = result.user;
             form.reset();
-            navigator('/courses')
+            navigator(from, { replace: true });
             console.log(user)
         })
         .catch((error) =>{
