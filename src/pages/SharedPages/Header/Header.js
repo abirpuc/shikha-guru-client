@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Image from 'react-bootstrap/Image'
 import logo from '../../../Images/logo.png';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,11 @@ import { useContext } from 'react';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Header = () => {
-    const {user} = useContext(AuthContex);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const { user } = useContext(AuthContex);
     return (
         <div>
             <Navbar bg="light" expand="lg" className="mx-8">
@@ -28,7 +33,8 @@ const Header = () => {
                         >
                             <Nav.Link ><Link to="/">Home</Link></Nav.Link>
                             <Nav.Link ><Link to="/courses">Course</Link></Nav.Link>
-                            <NavDropdown title="Login" id="navbarScrollingDropdown">
+                            <Nav.Link ><Link onClick={handleShow}>Forms</Link></Nav.Link>
+                            {/* <NavDropdown title="Login" id="navbarScrollingDropdown">
                                 <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                                 <NavDropdown.Item >
                                     <Link to="/register">
@@ -46,11 +52,11 @@ const Header = () => {
                                     </Link>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                         <div>
                             {
-                               <p>{ user?.displayName}</p>
+                                <p>{user?.displayName}</p>
                             }
                             <Link>LogOut</Link>
                             <button title="">Light</button>
@@ -58,6 +64,26 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="text-center">
+                    <ButtonGroup className="w-75 mb-2 d-grid gap-2">
+                        <Link to="register"><Button className="rounded">     Registration     </Button></Link>
+                        <Link><Button className="rounded" variant="danger">Sing-In With Google</Button></Link>
+                        <Link><Button className="rounded" variant="secondary"> Sing-In With Github </Button></Link>
+                    </ButtonGroup>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" >
+                        Login
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

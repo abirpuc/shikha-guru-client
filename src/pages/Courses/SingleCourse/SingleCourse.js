@@ -4,16 +4,15 @@ import { useLoaderData } from 'react-router-dom';
 import CourseCart from '../CourseCart/CourseCart';
 
 const SingleCourse = () => {
-    const course = useLoaderData();
-    console.log(course.title);
+    const courses = useLoaderData();
     return (
        
         <div className="mt-4">
-             <h1>{course.length}</h1>
+             <h1>{courses.length}</h1>
            {
-                course.map(c => <CourseCart
+                courses.map(c => <CourseCart
                     key={c.id}
-                    course={course}
+                    courses={c}
                 ></CourseCart>)
            }
         </div>
