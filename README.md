@@ -67,6 +67,6 @@ github Link clink side: [https://github.com/programming-hero-web-course1/b610-le
 
 github Link server side: [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-abirpuc/tree/main/data];
 
-Live site link:
+Live site link:[https://shikka-guru.web.app/]
 
 
