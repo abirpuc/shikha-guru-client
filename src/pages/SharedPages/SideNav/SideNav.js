@@ -17,10 +17,10 @@ const SideNav = () => {
             <h1>Available Courses: {course.length}</h1>
             {
                 course.map(c =>
-                    <ButtonGroup vertical key={c.id} className="d-grid">
-                        <Link to={`/single-courses/${c.id}`}>
-                            <Button variant="outline-dark" className="mt-2 w-full" >{c.name}</Button>
-                        </Link>
+                    <ButtonGroup vertical key={c.id} className="d-grid w-75">
+                        
+                            <Button variant="outline-dark" className="mt-2 w-full" ><Link className="nav-link" to={`/single-courses/${c.id}`}>{c.name}</Link></Button>
+                        
                     </ButtonGroup>
                 )
             }

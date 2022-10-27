@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-
 import { Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { AuthContex } from '../../Context/AuthContext/AuthProvider';
 
 const Details = () => {
+    const {handleGetPremium} = useContext(AuthContex)
     const course = useLoaderData();
     const { title, rating, total_sales, img_url, description, publish_date, author,_id} = course;
+
+    const handleCourse = (course) =>{
+        console.log(course)
+        return handleGetPremium(course)
+    }
+    
     return (
         <div className="mt-4">
             <Card className="mt-8 mb-4" style={{ width: "75%" }}>
@@ -47,7 +55,7 @@ const Details = () => {
                         </div>
                         <div className='d-grid'>
                         <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link">Download Pdf</Link></Button>
-                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link">Get Premium</Link></Button>
+                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link" onClick={() => handleCourse(course)}>Get Premium</Link></Button>
                         </div>
                     </div>
                 </Card.Footer>

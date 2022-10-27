@@ -10,6 +10,7 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState({})
     const [loading,setLoading] = useState(true);
+    const [premium,setPremium] = useState([]);
 
     const createUser = (email,password) =>{
         setLoading(false)
@@ -42,7 +43,13 @@ const AuthProvider = ({children}) => {
         return () =>{
             unsubscribe();
         }
-    },[]) 
+    },[])
+
+    const handleGetPremium = (course) =>{
+        const newPremium = [...premium,course];
+        setPremium(newPremium);
+    }
+
     const AuthInfo={
         user,
         loading,
@@ -51,6 +58,9 @@ const AuthProvider = ({children}) => {
         singinWithGoogle,
         login,
         logOut,
+        handleGetPremium,
+        setPremium,
+        premium,
     }
     return (
         <div>
