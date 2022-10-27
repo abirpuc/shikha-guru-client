@@ -13,13 +13,12 @@ const SideNav = () => {
             .then(data => setCourse(data))
     })
     return (
-        <div className="mb-4">
-            <h1>Available Courses: {course.length}</h1>
+        <div className="mt-4 border p-2 rounded Larger shadow">
             {
                 course.map(c =>
-                    <ButtonGroup vertical key={c.id} className="d-grid w-75">
+                    <ButtonGroup vertical key={c.id} className="d-grid w-75 text-start">
                         
-                            <Button variant="outline-dark" className="mt-2 w-full" ><Link className="nav-link" to={`/single-courses/${c.id}`}>{c.name}</Link></Button>
+                            <Button variant="outline-dark" className="mt-2 w-full border-0 text-start" ><Link className="nav-link" to={`/single-courses/${c.id}`}>{c.name}</Link></Button>
                         
                     </ButtonGroup>
                 )

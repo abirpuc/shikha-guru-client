@@ -7,20 +7,31 @@ import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthContex } from '../../Context/AuthContext/AuthProvider';
+import { jsPDF } from "jspdf";
+import logo from '../../Images/logo.png';
 
 const Details = () => {
     const {handleGetPremium} = useContext(AuthContex)
     const course = useLoaderData();
     const { title, rating, total_sales, img_url, description, publish_date, author,_id} = course;
 
+
     const handleCourse = (course) =>{
         console.log(course)
         return handleGetPremium(course)
     }
+
+    const pdfGenerator = () =>{
+        var doc  = new jsPDF('landscape','px','a4', 'false');
+        doc.addImage(logo,'PNG',65,20,500,400);
+        doc.addPage();
+        doc.text(60,60, 'Download pdf using react js');
+        doc.save('a.pdf');
+    }
     
     return (
-        <div className="mt-4">
-            <Card className="mt-8 mb-4" style={{ width: "75%" }}>
+        <div className="mt-4 ">
+            <Card className="mt-8 mb-4 Larger shadow" style={{ width: "75%" }}>
                 <Card.Header>
                     <div className='d-flex justify-content-between'>
                         <div className='d-flex align-items-center'>
@@ -54,8 +65,8 @@ const Details = () => {
                             <p>Total Seal:{total_sales}</p>
                         </div>
                         <div className='d-grid'>
-                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link">Download Pdf</Link></Button>
-                        <Button variant="primary" className="mt-2"><Link to={`/details/${_id}`} className="text-white nav-link" onClick={() => handleCourse(course)}>Get Premium</Link></Button>
+                        <Button variant="primary" className="mt-2" onClick={pdfGenerator}>Download Pdf</Button>
+                        <Button variant="primary" className="mt-2" onClick={() => handleCourse(course)}>Get Premium</Button>
                         </div>
                     </div>
                 </Card.Footer>

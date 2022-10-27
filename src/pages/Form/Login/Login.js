@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState(false)
     const { login,singinWithGoogle } = useContext(AuthContex)
     const handleGooglesingin = () => {
         singinWithGoogle()
@@ -36,17 +37,15 @@ const Login = () => {
             })
             .catch((error) => {
                 console.error(error.message)
+                setError(error.message)
             })
     }
     return (
-        <div style={{}}>
-            <Form onSubmit={handleForm} style={{ width: "50%", marginLeft: "200px" }}>
+        <div >
+            <Form className="Larger shadow mt-4 p-4 rounded bg-light" onSubmit={handleForm} style={{ width: "50%", marginLeft: "200px" }}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -58,6 +57,12 @@ const Login = () => {
                         <p className='text-success'>I have no Account?<Link to="/register">Register</Link></p>
                     </Form.Text>
                 </Form.Group>
+                <Form.Text>
+                    {
+                        error?<p className="text-danger">{error}</p>:
+                        " "
+                    }
+                </Form.Text>
 
                 <Button variant="primary" type="submit">
                     Submit

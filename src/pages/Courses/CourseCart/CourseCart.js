@@ -10,7 +10,7 @@ const CourseCart = ({ courses }) => {
     console.log(courses);
     return (
         <div className="mt-4">
-            <Card className="mt-8 mb-4" style={{ width: "75%" }}>
+            <Card className="mt-8 mb-4 Larger shadow" style={{ width: "75%" }}>
                 <Card.Header>
                     <div className='d-flex justify-content-between'>
                         <div className='d-flex align-items-center'>
