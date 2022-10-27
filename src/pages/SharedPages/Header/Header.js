@@ -11,28 +11,22 @@ import logo from '../../../Images/logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
-import { FaToggleOff,FaToggleOn,FaSun,FaMoon } from "react-icons/fa";
+import { FaToggleOff, FaToggleOn, FaSun, FaMoon } from "react-icons/fa";
 
 const Header = () => {
     const [show, setShow] = useState(false);
     const [toggle, setToggle] = useState(true);
     const location = useLocation();
 
-    const {pathname} = location;
+    const { pathname } = location;
 
     const { user, singinWithGoogle, logOut } = useContext(AuthContex);
 
     const navigator = useNavigate();
 
-    const handleGooglesingin = () => {
-        singinWithGoogle()
-            .then(() => { })
-            .catch(() => { })
-    }
-
     const singout = () => {
         logOut()
-            .then(() => { 
+            .then(() => {
                 navigator('/');
             })
     }
@@ -41,18 +35,19 @@ const Header = () => {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg" className="mx-8" >
-                <Container Container>
+            <Navbar bg="light" expand="lg" className="mx-8">
+                <Container container>
                     <Navbar.Brand>
                         <Image src={logo} style={{ height: "60px" }} className="my-0 mx-8"></Image>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll" className='d-flex justify-content-between'>
-                        
-                        <Nav className="me-8 my-lg-0"
-                            style={{ maxHeight: '100px' }}>
-                            
-                           <li className={spliteLocation[1] === " "?"active":""}><Link  className="nav-link " variant="light" to="/">Home</Link></li>
+                    <Navbar.Collapse id="navbarScroll">
+                        <Nav
+                            className="me-auto my-2 my-lg-0"
+                            style={{ maxHeight: '100px' }}
+                            navbarScroll
+                        >
+                            <li className={spliteLocation[1] === " "?"active":""}><Link  className="nav-link " variant="light" to="/">Home</Link></li>
                             <li> <Link className="nav-link " variant="light" to="/courses">Course</Link></li>
                            <li> <Link className="nav-link " variant="light" to="/checkout">Premium Course</Link></li>
                           <li> <Link className="nav-link " variant="light" to="/blog">Blog</Link></li>
@@ -80,7 +75,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
+
         </div>
     );
 };

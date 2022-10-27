@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+## Shikka-Guru APP
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -29,42 +29,44 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `CSS FrameWork `
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## React Bootstrap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+React Bootstrap Link [https://react-bootstrap.github.io/]
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+installation: ['npm install react-bootstrap bootstrap'].
+import file :[import 'bootstrap/dist/css/bootstrap.min.css'][in the top of index.js file]
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### React Router Dom
+React-Router-Dom Link: [https://reactrouter.com/en/main].
+installation: [npm react-router-dom]
 
-### Code Splitting
+### Authentication with firebase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+firebase Link: [https://console.firebase.google.com/project/shikka-guru/authentication/providers]
 
-### Analyzing the Bundle Size
+### `Login System`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# SingInWithGoogle
+# SingInWithGitHub
+# SingInEmail&Password
 
-### Making a Progressive Web App
+### Make pdf file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+using jspdf package Link [https://www.npmjs.com/package/jspdf]
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+installation: [npm install jspdf --save]
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+github Link clink side: [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-abirpuc];
 
-### `npm run build` fails to minify
+github Link server side: [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-abirpuc/tree/main/data];
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Live site link:
+
+

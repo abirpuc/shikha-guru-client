@@ -8,15 +8,14 @@ import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState(false)
-    const { login,singinWithGoogle } = useContext(AuthContex)
-    const handleGooglesingin = () => {
-        singinWithGoogle()
-            .then(() => { })
-            .catch(() => { })
-    }
+    const { login,singinWithGoogle,gitLogin } = useContext(AuthContex);
+
+    const location = useLocation();
+
+    const {pathname} = location;
 
     const navigator = useNavigate();
-    const location = useLocation();
+
     const from = location.state?.from?.pathname || "/";
 
     const handleForm = (event) => {
@@ -39,6 +38,19 @@ const Login = () => {
                 console.error(error.message)
                 setError(error.message)
             })
+    }
+
+    const handleGooglesingin = () => {
+        singinWithGoogle()
+            .then(() => { })
+            .catch(() => { })
+    }
+
+    const handleGitLogin = () =>{
+        gitLogin()
+        .then(result => {
+            navigator(from, { replace: true });
+        })
     }
     return (
         <div >
@@ -70,7 +82,7 @@ const Login = () => {
             </Form>
             <ButtonGroup className="mb-2 d-grid gap-2 mt-4 w-50 mr-0" style={{ marginLeft: "200px" }}>
                 <Button className="rounded" onClick={handleGooglesingin} variant="danger">Sing-In With Google</Button>
-                <Button className="rounded" variant="secondary"> Sing-In With Github </Button>
+                <Button className="rounded" variant="secondary" onClick={handleGitLogin}> Sing-In With Github </Button>
             </ButtonGroup>
         </div>
     );

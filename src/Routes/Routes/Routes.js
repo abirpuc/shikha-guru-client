@@ -25,12 +25,12 @@ export const routes = createBrowserRouter([
             {
                 path:'/courses',
                 element:<Courses></Courses>,
-                loader: ({params}) => fetch('http://localhost:5000/all-courses')
+                loader: ({params}) => fetch('https://shikka-guru-server.vercel.app/all-courses')
             },
             {
                 path:'/single-courses/:id',
                 element:<SingleCourse></SingleCourse>,
-                loader:({params})=>fetch(`http://localhost:5000/single-courses/${params.id}`)
+                loader:({params})=>fetch(`https://shikka-guru-server.vercel.app/single-courses/${params.id}`)
             },
             {
                 path:'/blog',
@@ -47,7 +47,7 @@ export const routes = createBrowserRouter([
             {
                 path:'/details/:id',
                 element:<PrivateRouter><Details></Details></PrivateRouter>,
-                loader:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader:({params}) => fetch(`https://shikka-guru-server.vercel.app/details/${params.id}`)
             },
             {
                 path:'/checkout',
