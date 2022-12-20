@@ -31,9 +31,9 @@ const Details = () => {
     }
     
     return (
-        <div className="mt-4 ">
+        <div className={`mt-4 ${them}`}>
             <Card className={`mt-8 mb-4 Larger shadow ${them}`} style={{ width: "75%" }}>
-                <Card.Header>
+                <Card.Header className={`${them}`}>
                     <div className={`d-flex justify-content-between ${them}`}>
                         <div className='d-flex align-items-center'>
                             <Image roundedCircle className="me-2" src={author.images} style={{ height: "40px", width: "40px" }}></Image>
@@ -52,14 +52,14 @@ const Details = () => {
                     </div>
                 </Card.Header>
                 <Card.Img variant="top" src={img_url} style={{ height: "400px" }} />
-                <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>
+                <Card.Body className={` ${them}`}>
+                    <Card.Title className={`${them}`}>{title}</Card.Title>
+                    <Card.Text className={`${them}`}>
                         {description}
                     </Card.Text>
 
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer className={`${them}`}>
                     <div className='d-flex justify-content-between'>
                         <div>
                             <p>Published Date:{publish_date}</p>

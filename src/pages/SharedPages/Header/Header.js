@@ -17,7 +17,7 @@ const Header = () => {
 
     const { pathname } = location;
 
-    const { user, singinWithGoogle, logOut, toggle, setToggle } = useContext(AuthContex);
+    const { user, singinWithGoogle, logOut, toggle, setToggle,them } = useContext(AuthContex);
 
     const navigator = useNavigate();
 
@@ -32,7 +32,7 @@ const Header = () => {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg" className="mx-8">
+            <Navbar bg={`light ${them}`} expand="lg" className={`mx-8 ${them}`}>
                 <Container container>
                     <Navbar.Brand>
                         <Link to="/"><Image src={logo} style={{ height: "60px" }} className="my-0 mx-8"></Image></Link>
