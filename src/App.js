@@ -1,12 +1,18 @@
+import { useState } from 'react';
+import { useContext } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { AuthContex } from './Context/AuthContext/AuthProvider';
 import { routes } from './Routes/Routes/Routes';
 
 
 
 function App() {
+  const {them}=useContext(AuthContex)
+  
+  
   return (
-    <div style={{height:"100vh"}}>
+    <div className={` ${them}`}>
       <RouterProvider router={routes}>
 
       </RouterProvider>

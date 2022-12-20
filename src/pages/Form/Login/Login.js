@@ -5,10 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
+import './login.css'
 
 const Login = () => {
     const [error, setError] = useState(false)
-    const { login,singinWithGoogle,gitLogin } = useContext(AuthContex);
+    const { login,singinWithGoogle,gitLogin, them } = useContext(AuthContex);
 
     const location = useLocation();
 
@@ -54,7 +55,7 @@ const Login = () => {
     }
     return (
         <div >
-            <Form className="Larger shadow mt-4 p-4 rounded bg-light" onSubmit={handleForm} style={{ width: "50%", marginLeft: "200px" }}>
+            <Form className={`Larger shadow mt-4 p-4 rounded ${them}`} onSubmit={handleForm} style={{ width: "50%", marginLeft: "200px" }}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter email" />

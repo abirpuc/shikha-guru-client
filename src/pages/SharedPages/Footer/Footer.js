@@ -6,7 +6,7 @@ import { FaMapMarkerAlt,FaRegEnvelope,FaMobileAlt,FaFacebookSquare,FaTwitterSqua
 const Footer = () => {
     return (
         <div className=' bg-dark text-white mb-0' style={{bottom:'0', width:"100%"}}>
-            <div className='container'>
+            <div className='container mt-20'>
                 <Row className="container pt-4">
                     <Col>
                         <div className="mt-2 mr-2 text-xl">
@@ -43,7 +43,7 @@ const Footer = () => {
                             Youtube</div>
                     </Col>
                 </Row>
-                <p className="text-center mt-4 mb-4">&copy; Copyright 2022 Shikka-Guru.com</p>
+                <p className="text-center mt-4 mb-0">&copy; Copyright 2022 Shikka-Guru.com</p>
             </div>
         </div>
     );

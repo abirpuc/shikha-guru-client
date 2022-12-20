@@ -1,18 +1,21 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
+import './CourseCart.css'
 
 const CourseCart = ({ courses }) => {
     const { title, rating, total_sales, img_url, description, publish_date, author,_id} = courses;
-    console.log(courses);
+    const {them} = useContext(AuthContex);
     return (
         <div className="mt-4">
-            <Card className="mt-8 mb-4 Larger shadow" style={{ width: "75%" }}>
+            <Card className={`mt-8 mb-4 Larger shadow ${them}`} style={{ width: "75%" }}>
                 <Card.Header>
-                    <div className='d-flex justify-content-between'>
+                    <div className={`d-flex justify-content-between ${them}`}>
                         <div className='d-flex align-items-center'>
                             <Image roundedCircle className="me-2" src={author.images} style={{ height: "40px", width: "40px" }}></Image>
                             <div className="ml-2">

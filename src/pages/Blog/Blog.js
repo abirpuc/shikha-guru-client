@@ -1,10 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Card } from 'react-bootstrap';
+import { AuthContex } from '../../Context/AuthContext/AuthProvider';
+import './blogs.css'
 
 const Blog = () => {
+    const {them} = useContext(AuthContex)
     return (
         <div>
-            <Card className="w-75 me-auto mt-2 mb-2 Larger shadow">
+            <Card className={`w-75 me-auto mt-2 mb-2 Larger shadow ${them}`}>
                 <Card.Body>
                     <Card.Title className="text-2xl">what is cors?</Card.Title>
                     <Card.Text className="justify">
@@ -12,7 +16,7 @@ const Blog = () => {
                     </Card.Text>
                 </Card.Body>
             </Card>
-            <Card className="w-75 me-auto mt-2 mb-2 Larger shadow">
+            <Card className={`w-75 me-auto mt-2 mb-2 Larger shadow ${them}`}>
                 <Card.Body>
                     <Card.Title className="text-2xl">How does the private route work?</Card.Title>
                     <Card.Text>
@@ -20,7 +24,7 @@ const Blog = () => {
                     </Card.Text>
                 </Card.Body>
             </Card>
-            <Card className="w-75 me-auto mt-2 mb-2 Larger shadow">
+            <Card className={`w-75 me-auto mt-2 mb-2 Larger shadow ${them}`}>
                 <Card.Body>
                     <Card.Title className="text-2xl">Why are you using firebase? What other options do you have to implement authentication?</Card.Title>
                     <Card.Text>
@@ -33,7 +37,7 @@ const Blog = () => {
                     </Card.Text>
                 </Card.Body>
             </Card>
-            <Card className="w-75 me-auto mt-2 mb-2 Larger shadow">
+            <Card className={`w-75 me-auto mt-2 mb-2 Larger shadow ${them}`}>
                 <Card.Body>
                     <Card.Title className="text-2xl">What is Node? How does Node work?</Card.Title>
                     <Card.Text>

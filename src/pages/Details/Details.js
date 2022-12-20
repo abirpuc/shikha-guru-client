@@ -9,9 +9,10 @@ import { useState } from 'react';
 import { AuthContex } from '../../Context/AuthContext/AuthProvider';
 import { jsPDF } from "jspdf";
 import logo from '../../Images/logo.png';
+import './details.css'
 
 const Details = () => {
-    const {handleGetPremium} = useContext(AuthContex)
+    const {handleGetPremium, them} = useContext(AuthContex)
     const course = useLoaderData();
     const { title, rating, total_sales, img_url, description, publish_date, author,_id} = course;
 
@@ -31,9 +32,9 @@ const Details = () => {
     
     return (
         <div className="mt-4 ">
-            <Card className="mt-8 mb-4 Larger shadow" style={{ width: "75%" }}>
+            <Card className={`mt-8 mb-4 Larger shadow ${them}`} style={{ width: "75%" }}>
                 <Card.Header>
-                    <div className='d-flex justify-content-between'>
+                    <div className={`d-flex justify-content-between ${them}`}>
                         <div className='d-flex align-items-center'>
                             <Image roundedCircle className="me-2" src={author.images} style={{ height: "40px", width: "40px" }}></Image>
                             <div className="ml-2">

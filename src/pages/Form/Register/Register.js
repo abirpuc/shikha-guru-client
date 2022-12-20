@@ -4,12 +4,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../../Context/AuthContext/AuthProvider';
+import './register.css'
 
 const Register = () => {
     const navigator = useNavigate();
     const {error, setError} = useState(null);
     const [accepted,setAccepted] = useState(false)
-    const { createUser,userProfileUpdate } = useContext(AuthContex);
+    const { createUser,userProfileUpdate,them } = useContext(AuthContex);
 
 
     const handleForm = (event) => {
@@ -56,7 +57,7 @@ const Register = () => {
 
     return (
         <div>
-            <Form className="Larger shadow mt-4 p-4 mb-4 rounded" onSubmit={handleForm} style={{width: "50%", marginLeft: "200px"}}>
+            <Form className={`Larger shadow mt-4 p-4 mb-4 rounded ${them}`} onSubmit={handleForm} style={{width: "50%", marginLeft: "200px"}}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Full Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="Enter full name" required/>
